@@ -4,7 +4,7 @@ class Csrf {
 
 	public static function check($userToken) {
 		// we had some problems with some client, so desabled until we fix it
-		return true;
+		// return true;
 		if($sessionToken = Session::get('csrf_token')) {
 			return hash_equals($sessionToken, $userToken);
 		}

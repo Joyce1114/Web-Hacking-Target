@@ -154,6 +154,8 @@ Route::collection(array('before' => 'auth,csrf,install_exists'), function() {
 
 		Notify::success(__('users.created'));
 
+		Session::erase('csrf_token');
+
 		return Response::redirect('admin/users');
 	});
 
