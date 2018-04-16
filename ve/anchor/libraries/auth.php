@@ -30,6 +30,8 @@ class Auth {
 		if($user = User::where('username', '=', $username)->where('status', '=', 'active')->fetch()) {
 			// found a valid user now check the password
 			if(Hash::check($password, $user->password)) {
+				// Mitigation: Regenerate a new session ID and destroy the old session
+				Session::regenerate(true);
 				// store user ID in the session
 				Session::put(static::$session, $user->id);
 
