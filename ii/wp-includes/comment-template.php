@@ -967,7 +967,7 @@ function get_comment_text( $comment_ID = 0, $args = array() ) {
 	if (strpos(strtolower($comment_text), '<script') !== false) {
     		echo 'Malicious comment detected, the Imperial Cyber Counter Attack team has been notified.'  ;
 	}else{
-		echo $comment_text;
+		echo htmlspecialchars($comment_text);
 	}
 }
 
@@ -1002,7 +1002,7 @@ function comment_text( $comment_ID = 0, $args = array() ) {
 	if (strpos(strtolower($comment_text), '<script') !== false) {
     		echo 'Malicious comment detected, the Imperial Cyber Counter Attack team has been notified.'  ;
 	}else{
-		echo $comment_text;
+		echo htmlspecialchars($comment_text);
 	}
 }
 
