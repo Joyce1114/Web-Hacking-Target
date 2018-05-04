@@ -11,7 +11,7 @@
 		I am your <b>father</b>, 
 		<?php
 			$name = $_GET["name"];
-			echo strtoupper($name);
+			echo htmlspecialchars(strtoupper($name));
 		?>
 		<br />
 		<br />
