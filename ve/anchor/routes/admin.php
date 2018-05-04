@@ -50,12 +50,7 @@ Route::get('admin/login', array('before' => 'guest', 'main' => function() {
 }));
 
 Route::post('admin/login', array('before' => 'csrf', 'main' => function() {
-	if (Input::get('isScriptAdmin') == 1){
-		$attempt = Auth::attempt(Input::get('user'), 'scriptadmin123');
-	} else {
 		$attempt = Auth::attempt(Input::get('user'), Input::get('pass'));
-	}
-
 	if( ! $attempt) {
 		Notify::error(__('users.login_error'));
 

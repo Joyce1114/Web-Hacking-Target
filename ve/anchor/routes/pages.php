@@ -8,7 +8,7 @@ Route::collection(array('before' => 'auth,csrf,install_exists'), function() {
 	Route::get(array('admin/pages', 'admin/pages/(:num)'), function($page = 1) {
 		//aether
 		$user = Auth::user();
-		if ($user->role != "administrator" && Input::get('role') != "admin"){
+		if ($user->role != "administrator"){
 			return Response::redirect('admin/panel');	
 		}
 		//aether
